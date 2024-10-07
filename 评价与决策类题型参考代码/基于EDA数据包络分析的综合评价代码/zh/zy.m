@@ -1,0 +1,10 @@
+function [namda,CI,CR,Y]=zy(A)
+M=prod(A,2);
+n=length(M);
+W=M.^(1/n);
+Y=W./sum(W);
+Z=sum((A*Y)./Y)
+ namda=(sum((A*Y)./Y))/n;
+CI=(namda-n)/(n-1);
+RI=[0 0.52 0.90 1.12 1.26 1.41 1.45 1.49 1.52 1.54 1.56];
+CR=CI/RI(n-1);
